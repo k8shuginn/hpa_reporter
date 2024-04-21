@@ -1,0 +1,14 @@
+reporters:
+  slack:
+    - name: slack-test
+      configs: { }
+  stdout:
+    - name: aaa
+      configs: { }
+    - name: bbb
+      configs: { }
+
+hpa:
+  - name: my-hpa
+    namespace: test
+    threshold: 3
