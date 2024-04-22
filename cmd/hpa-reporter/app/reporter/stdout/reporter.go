@@ -1,12 +1,12 @@
-package slack
+package stdout
 
 import (
 	"fmt"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/config"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/message"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/config"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/message"
 )
 
-// Reporter is slack reporter
+// Reporter is stdout reporter
 type Reporter struct {
 	msgChan  chan *message.Data
 	shutdown chan struct{}
@@ -15,7 +15,7 @@ type Reporter struct {
 	configs map[string]string
 }
 
-// Report sends message to slack
+// Report sends message to stdout
 func (r *Reporter) Report(msg *message.Data) {
 	r.msgChan <- msg
 }
@@ -26,15 +26,14 @@ LOOP:
 	for {
 		select {
 		case msg := <-r.msgChan:
-			// TODO implement slack reporter
-			fmt.Printf("slack(%s): %s[%s/%s]: replicas(%d/%d)\n", r.name, msg.Level, msg.Name, msg.Namespace, msg.CurrentReplicas, msg.MaxReplicas)
+			fmt.Printf("stdout(%s): %s[%s/%s]: replicas(%d/%d)\n", r.name, msg.Level, msg.Name, msg.Namespace, msg.CurrentReplicas, msg.MaxReplicas)
 		case <-r.shutdown:
 			break LOOP
 		}
 	}
 }
 
-// CreateReporter creates a new slack reporter
+// CreateReporter creates a new stdout reporter
 func CreateReporter(cfg config.Reporter, shutdown chan struct{}) (*Reporter, error) {
 	r := &Reporter{
 		msgChan:  make(chan *message.Data),

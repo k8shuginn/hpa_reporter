@@ -1,0 +1,70 @@
+replicaCount: 1
+
+image:
+  repository: standard2hsw/hpa-reporter
+  pullPolicy: IfNotPresent
+  tag: "v0.0.1"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+env:
+  - name: LOG_LEVEL
+    value: info
+  - name: LOG_PATH
+    value: /var/log/hpa-reporter
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+#   memory: 128Mi
+
+reporters:
+  stdout:
+    - name: stdout
+      configs: {}
+#  slack:
+#    - name: slack
+#      configs:
+#        key1: value1
+#        key2: value2
+
+hpaList: {}
+#  - name: hpa-a
+#    namespace: default
+#    threshold: 5
+#  - name: hpa-b
+#    namespace: default
+#    threshold: 5
+
+
+podAnnotations: {}
+
+podLabels: {}
+
+podSecurityContext: {}
+# fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+# runAsUser: 1000
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

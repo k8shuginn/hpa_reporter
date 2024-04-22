@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app"
 	"github.com/k8shuginn/hpa_reporter/logger"
 	"go.uber.org/zap"
 	"os"

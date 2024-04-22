@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	DefaultConfigPath = "/etc/k8shuginn/config.yaml"
+	DefaultConfigPath = "/etc/hpa-reporter/config.yaml"
 )
 
 type (
