@@ -1,5 +1,3 @@
 # hpa_reporter
-hpa_reporter는 Kubernetes의 Horizontal Pod Autoscaler (HPA)에서 발생하는 이벤트를 모니터링하여 사용자에게 현재 상태를 보고하는 프로그램입니다.
-이 프로그램은 지정된 HPA에 대해 특정 개수 이상의 replica가 생성되었을 때 이벤트를 수집합니다.
-설정된 threshold 값 이상의 replica가 생성되면 "Warning"으로, HPA 설정의 최대 허용치인 maxReplicas 이상의 replica가 생성되었을 경우 "Critical"로 알림을 보내 사용자가 상황을 인지할 수 있도록 합니다.
-이렇게 hpa_reporter는 Kubernetes 환경에서 리소스 사용 상황을 효과적으로 관리하고 조정하는 데 도움을 줍니다.
+Kubernetes에서 자동 수평 확장을 위해 자주 사용되는 기능인 Horizontal Pod Autoscaler (HPA)는 설정된 maxReplicas 값까지만 pod를 확장하고, 그 이상 확장되지 않습니다. 이로 인해 사용자가 HPA가 최대 설정값까지 확장되었는지 직접 확인해야 하는 불편함이 있습니다. 이 문제를 해결하기 위해 hpa-reporter라는 도구가 개발되었습니다.
+hpa-reporter는 지정된 namespace 내의 모든 HPA를 모니터링하며, 각 HPA가 관리하는 deployment의 현재 replica 수와 maxReplicas 값을 비교합니다. 만약 현재 replica 수가 특정 기준을 초과하면, 사용자에게 알림을 보내어 현재 상태를 알 수 있게 합니다. 이 시스템을 통해 사용자는 별도의 수동 검사 없이도 deployment가 최대로 설정된 replica 수에 도달했는지 쉽게 파악할 수 있습니다.
