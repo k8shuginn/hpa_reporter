@@ -3,9 +3,9 @@ package app
 import (
 	"fmt"
 	"github.com/alecthomas/kingpin/v2"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/collector"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/config"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/reporter"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/collector"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/config"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/reporter"
 	"github.com/k8shuginn/hpa_reporter/logger"
 	"go.uber.org/zap"
 	"os"
@@ -15,7 +15,7 @@ import (
 
 var (
 	ConfigPath = kingpin.Flag("app.config", "config file path.").Default(config.DefaultConfigPath).String()
-	Name       = "hpa_reporter"
+	Name       = "hpa-reporter"
 )
 
 func init() {

@@ -2,10 +2,10 @@ package reporter
 
 import (
 	"fmt"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/config"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/message"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/reporter/slack"
-	"github.com/k8shuginn/hpa_reporter/cmd/hpa_reporter/app/reporter/stdout"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/config"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/message"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/reporter/slack"
+	"github.com/k8shuginn/hpa_reporter/cmd/hpa-reporter/app/reporter/stdout"
 )
 
 type Reporter interface {

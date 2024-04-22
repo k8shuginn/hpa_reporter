@@ -7,6 +7,7 @@ const (
 
 // Data is message data
 type Data struct {
+	Time            string
 	Level           string
 	Name            string
 	Namespace       string
