@@ -3,8 +3,8 @@ FROM golang:1.22 as builder
 ADD . /app
 WORKDIR /app/cmd/hpa-reporter
 RUN go build -o /reporter
+RUN ["ls", "-al", "/"]
 
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates
 COPY --from=builder /reporter /reporter
 CMD ["/reporter"]

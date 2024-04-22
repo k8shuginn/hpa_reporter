@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: standard2hsw/hpa-reporter
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   tag: "v0.0.1"
 
 imagePullSecrets: []
